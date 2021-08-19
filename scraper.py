@@ -7,7 +7,7 @@ class NewSpider(scrapy.Spider):
     start_urls = ['https://ite.edu.sg']
 
     def start_requests(self):
-        headers = {'User Agent: Mozilla/5.0 (Linux; Android 7.0; SM-G930V Build/NRD90M) AppleWebKit/537.36 (KHTML like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36'}
+        headers = {'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1'}
         for url in self.start_urls:
             yield Request(url, headers=headers)
 
