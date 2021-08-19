@@ -5,10 +5,13 @@ from scrapy.http.request import Request
 class newSpider(scrapy.spider):
     name = "CreepyCrawler"
     start_urls = ['https://ite.edu.sg']
+
     def start_requests(self):
-        headers = {'User Agent: Mozilla/5.0 (Linux; Android 7.0; SM-G930V Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36'}
+        headers = {'User Agent: Mozilla/5.0 (Linux; Android 7.0; SM-G930V Build/NRD90M) AppleWebKit/537.36 (KHTML, '
+                   'like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36'}
         for url in self.start_urls:
             yield Request(url, headers=headers)
+
     def parse(self, response):
         css_selector = 'img'
         for x in response.css(css_selector):
