@@ -20,3 +20,5 @@ class newSpider(scrapy.spider):
                     response.urljoin(next_page),
                     callback = self.parse
                 )
+
+# test
