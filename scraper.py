@@ -2,7 +2,7 @@ import scrapy
 from scrapy.http.request import Request
 
 
-class newSpider(scrapy.spider):
+class newSpider(scrapy.Spider):
     name = "CreepyCrawler"
     start_urls = ['https://ite.edu.sg']
 
