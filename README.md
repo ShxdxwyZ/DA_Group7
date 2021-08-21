@@ -15,3 +15,7 @@ Make use of imported libraries/modules to:
 - Receive and store results in a .json file
 
 Our application must also include a "Test case" with the appropriate test function(s) to test our application.
+
+# Usage
+
+For best readability on the output(s) in the terminal, use the "--nolog" argument alongside the usual "scrapy runspider" command.
