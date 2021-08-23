@@ -8,8 +8,8 @@ global stat  # realise "stat" as a global variable
 class NewSpider(scrapy.Spider):
     name = "CreepyCrawler"
 #    url = 'http://ite.edu.sg'
-    url = 'http://54.169.8.122/Python/172.18.58.238/snow/index.html'  # page URL for doing GET request
-    start_urls = ['http://54.169.8.122/Python/172.18.58.238/snow/index.html']
+    url = 'https://brickset.com/sets/year-2004'  # page URL for doing GET request
+    start_urls = ['https://brickset.com/sets/year-2004']
     print("Chosen URL: ", url, "\n")
     r = req.get(url)
     # for statement to print out the meaning of the few important status codes
