@@ -35,8 +35,7 @@ class NewSpider(scrapy.Spider):
 
 # spoofing current header to a mobile header
     def start_requests(self):
-        headers = {'User-Agent': "Mozilla/5.0 (Linux; Android 11; SM-A205U) AppleWebKit/537.36 (KHTML, like Gecko) "
-                                 "Chrome/92.0.4515.159 Mobile Safari/537.36"}
+        headers = {'User-Agent': "Mobile"}
         for url in self.start_urls:
             yield Request(url, headers=headers)
 
