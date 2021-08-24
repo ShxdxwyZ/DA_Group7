@@ -27,6 +27,7 @@ class NewSpider(scrapy.Spider):
 
     print("Performing GET request....\nStatus code: ", r.status_code, stat, "\n\n")  # display status code
     # Obtaining current header
+    print("Getting Current Header....")
     h = req.head(url)
     # printing current header
     print("Current header:\n=======================================================")
@@ -36,10 +37,12 @@ class NewSpider(scrapy.Spider):
 
 # spoofing current header to a mobile header
     def start_requests(self):
+        print("Spoofing current header....\n")
         headers = {'User-Agent': "Mobile"}
         for url in self.start_urls:
             yield Request(url, headers=headers)
         url2 = 'http://httpbin.org/headers'  # External site to retrieve our spoofed header
+        print("Using site 'http://httpbin.org/headers' to obtain spoofed header....\n")
         spoofed = req.get(url2, headers=headers)
         print("Spoofed Header: (via external site http://httpbin.org/headers)\n======================================="
               "================\n", spoofed.text,
@@ -62,3 +65,4 @@ class NewSpider(scrapy.Spider):
                 response.urljoin(next_page),
                 callback=self.parse
             )
+        print("Spider 'CreepyCrawler' is finished with job! :D")
