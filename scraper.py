@@ -78,7 +78,7 @@ class test_spider(unittest.TestCase):  # Test case
     print(rh2.text)
 
     def test_header(self):
-        self.assertEqual(test_spider.headers, 'Mobile')
+        self.assertTrue(test_spider.headers, 'Mobile')
 
 
 if __name__ == '__main__':
