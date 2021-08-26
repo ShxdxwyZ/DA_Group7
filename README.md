@@ -19,3 +19,4 @@ Our application must also include a "Test case" with the appropriate test functi
 # Usage
 
 For best readability on the output(s) in the terminal, use the "--nolog" argument alongside the usual "scrapy runspider" command.
+Also, to scrape multiple pages the '-s' argument has to be used with any user agent. We used: "USER_AGENT="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36"
