@@ -65,4 +65,7 @@ class NewSpider(scrapy.Spider):
                 response.urljoin(next_page),
                 callback=self.parse
             )
-        print("Spider 'CreepyCrawler' is finished with job! :D")
+
+    print("Spider 'CreepyCrawler' is finished with job! :D")
+
+
