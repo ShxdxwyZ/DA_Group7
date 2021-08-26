@@ -1,7 +1,10 @@
 # importing libraries that are needed
+from typing import Dict
+
 import scrapy
 from scrapy.http.request import Request
 import requests as req
+import unittest
 
 global stat  # realise "stat" as a global variable
 
@@ -35,12 +38,12 @@ class NewSpider(scrapy.Spider):
         print("\t", x, ":", h.headers[x])
     print("=======================================================\n\n")
 
-# spoofing current header to a mobile header
+    # spoofing current header to a mobile header
     def start_requests(self):
         print("Spoofing current header....\n")
         headers = {'User-Agent': "Mobile"}
-        for url in self.start_urls:
-            yield Request(url, headers=headers)
+        for url3 in self.start_urls:
+            yield Request(url3, headers=headers)
         url2 = 'http://httpbin.org/headers'  # External site to retrieve our spoofed header
         print("Using site 'http://httpbin.org/headers' to obtain spoofed header....\n")
         spoofed = req.get(url2, headers=headers)
@@ -52,10 +55,10 @@ class NewSpider(scrapy.Spider):
 # parse function used to retrieve/export the type of files we want
     def parse(self, response, **kwargs):
         css_selector = 'img'  # using variable css_selector. we will not be using xpath for this project
-        for x in response.css(css_selector):
+        for z in response.css(css_selector):
             newsel = '@src'
             yield {
-                'Image Link': x.xpath(newsel).extract_first(),  # extracting 'img' files
+                'Image Link': z.xpath(newsel).extract_first(),  # extracting 'img' files
             }
         # start of 'next page function'
         page_selector = '.next a ::attr(href)'  # to recurse to next page
@@ -65,7 +68,18 @@ class NewSpider(scrapy.Spider):
                 response.urljoin(next_page),
                 callback=self.parse
             )
-
     print("Spider 'CreepyCrawler' is finished with job! :D")
 
 
+class test_spider(unittest.TestCase):
+    headers: Dict[str, str] = {'User-Agent': 'Mobile'}
+    url2 = 'http://httpbin.org/headers'
+    rh2 = req.get(url2, headers=headers)
+    print(rh2.text)
+
+    def test_header(self):
+        self.assertEqual(test_spider.headers, 'Mobile')
+
+
+if __name__ == '__main__':
+    unittest.main()
