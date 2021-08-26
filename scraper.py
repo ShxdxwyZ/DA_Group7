@@ -71,8 +71,8 @@ class NewSpider(scrapy.Spider):
     print("Spider 'CreepyCrawler' is finished with job! :D")
 
 
-class test_spider(unittest.TestCase):
-    headers: Dict[str, str] = {'User-Agent': 'Mobile'}
+class test_spider(unittest.TestCase):  # Test case
+    headers = {'User-Agent': 'Mobile'}
     url2 = 'http://httpbin.org/headers'
     rh2 = req.get(url2, headers=headers)
     print(rh2.text)
